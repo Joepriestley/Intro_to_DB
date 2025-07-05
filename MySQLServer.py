@@ -1,5 +1,7 @@
 import mysql.connector
 
+from mysql.connector import Error
+
 def myConnection():
  
     try:
@@ -11,7 +13,7 @@ def myConnection():
         )
         print("Connection successful!")
         return conn
-    except Exception as e:
+    except Error as e:
         
         print(f"Database connection error: {e}")
         return None
@@ -28,7 +30,7 @@ def create_database():
         connn.close()
         print("Database 'alx_book_store' created successfully!")
         
-    except Exception as e:
+    except Error as e:
         print(f"Error creating database:{e}")
 		 
 create_database()
